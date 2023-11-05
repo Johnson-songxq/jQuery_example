@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Demo</title>
+    <style>
+      a.test {
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="http://jquery.com/">jQuery</a>
+    <script src="jquery-3.7.1.js"></script>
+    <script>
+      /*the code doesn't run until all images are finished downloading, including banner ads.*/
+      //   window.onload = function () {
+      //     alert('welcome');
+      //   };
+
+      $(document).ready(function () {
+        $('a').click(function (event) {
+          alert('As you can see, the link no longer took you to jquery.com');
+          //the click will not go to jquery.com
+          event.preventDefault();
+
+          //just try remove the class here
+          $('a').removeClass('test');
+
+          //special effects. after this link is clicked, it disappeared slowly.
+          $(this).hide('slow');
+        });
+      });
+
+      //add Class 'test' to a html tag
+      $('a').addClass('test');
+
+      //callbacks and functions
+      //callback without arguments
+      //$.get('myhtmlpage.html', myCallBack);
+
+      //callback with Arguments
+      //Load data from the server using a HTTP GET request.
+      //$.get('myhtmlpage.html', () => myCallBack(param1, param2));
+      //or
+      /*
+      $.get('myhtmlpage.html', function () {
+        myCallBack(param1, param2);
+      });
+      */
+    </script>
+  </body>
+</html>
